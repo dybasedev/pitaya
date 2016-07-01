@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace CloudGo\Foundation;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

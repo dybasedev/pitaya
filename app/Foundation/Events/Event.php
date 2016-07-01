@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace CloudGo\Foundation\Events;
 
 abstract class Event
 {

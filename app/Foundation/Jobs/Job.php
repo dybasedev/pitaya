@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace CloudGo\Foundation\Jobs;
 
 use Illuminate\Bus\Queueable;
 

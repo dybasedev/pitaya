@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace CloudGo\Foundation\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    protected $namespace = 'CloudGo\Foundation\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -55,7 +55,7 @@ class RouteServiceProvider extends ServiceProvider
         $router->group([
             'namespace' => $this->namespace, 'middleware' => 'web',
         ], function ($router) {
-            require app_path('Http/routes.php');
+            require app_path('Foundation/Http/routes.php');
         });
     }
 }
