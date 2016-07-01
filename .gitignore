@@ -1,0 +1,9 @@
+/vendor
+/node_modules
+/public/storage
+/.idea
+/.vagrant
+Homestead.yaml
+Homestead.json
+.env
+phpunit.local.xml
