@@ -2,6 +2,8 @@
 
 namespace CloudGo\Foundation\Providers;
 
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\ProviderRepository;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -14,12 +16,13 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'CloudGo\Foundation\Http\Controllers';
+    protected $namespace = 'CloudGo';
 
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     public function boot(Router $router)
@@ -32,7 +35,8 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     public function map(Router $router)
@@ -47,15 +51,19 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes all receive session state, CSRF protection, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
+     *
      * @return void
      */
     protected function mapWebRoutes(Router $router)
     {
-        $router->group([
-            'namespace' => $this->namespace, 'middleware' => 'web',
-        ], function ($router) {
-            require app_path('Foundation/Http/routes.php');
+        $router->group(['namespace' => $this->namespace], function (Router $router) {
+            //
         });
+
+        $repository = new ProviderRepository($this->app, $this->app->make(Filesystem::class),
+            base_path('bootstrap/cache/router-services.php'));
+
+        $repository->load($this->app['config']['router.providers']);
     }
 }

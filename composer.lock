@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8bcc99a25244734c106a5771cb308ed9",
-    "content-hash": "e31bd7f112542953e854f47a550bd2e4",
+    "hash": "1cadfc72bfa645312e428fb1b313d5fb",
+    "content-hash": "0f24becaaecb523478d3123c9a48a5bb",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1994,6 +1994,39 @@
                 "environment"
             ],
             "time": "2016-06-14 14:14:52"
+        },
+        {
+            "name": "zedisdog/laravel-schema-extend",
+            "version": "v0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zedisdog/laravel-schema-extend.git",
+                "reference": "b8e4ff426bafb7e64fe48d356c48f015be8a3cc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/zedisdog/laravel-schema-extend/b8e4ff426bafb7e64fe48d356c48f015be8a3cc9.zip",
+                "reference": "b8e4ff426bafb7e64fe48d356c48f015be8a3cc9",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "zedisdog\\LaravelSchemaExtend": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "zed",
+                    "email": "2692273254@qq.com"
+                }
+            ],
+            "description": "support MySQL 'table comment'.",
+            "time": "2015-11-16 00:00:00"
         }
     ],
     "packages-dev": [

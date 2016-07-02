@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'administrators',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -67,8 +72,13 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => CloudGo\Foundation\User::class,
+            'model' => CloudGo\Foundation\Authentication\User::class,
         ],
+        
+        'administrators' => [
+            'driver' => 'eloquent',
+            'model' => CloudGo\Foundation\Authentication\Administrator::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
