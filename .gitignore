@@ -6,5 +6,5 @@
 Homestead.yaml
 Homestead.json
 .env
-.ide-hepler.php
+.ide-helper.php
 phpunit.local.xml
