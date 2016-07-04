@@ -1,5 +1,7 @@
 var elixir = require('laravel-elixir');
 
+require('./resources/elixir-extensions/elixir-uglify');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,5 +14,5 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.scripts(['app.js']).uglify(['public/js/all.js'], 'public/js');
 });
