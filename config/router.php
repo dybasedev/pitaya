@@ -9,5 +9,6 @@
 return [
     'providers' => [
         CloudGo\BusinessPlatform\Providers\RouterRegisterProvider::class,
+        CloudGo\PowerManagement\Providers\RouteServiceProvider::class,
     ]
 ];
