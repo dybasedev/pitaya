@@ -30,7 +30,7 @@
         <!-- Logo -->
         <a href="#" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>Power</b>M</span>
+            <span class="logo-mini"><b>P</b>M</span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg"><b>Power</b>Management</span>
         </a>
@@ -43,6 +43,7 @@
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    @section('framework-navigation')
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -241,9 +242,12 @@
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
+                    <!-- 不使用
                     <li>
                         <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
+                    -->
+                    @show
                 </ul>
             </div>
         </nav>
@@ -312,10 +316,12 @@
 
         <!-- Main content -->
         <section class="content">
+            @section('module-content')
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-lg-12">Empty</div>
             </div>
+            @show
         </section>
         <!-- /.content -->
     </div>
@@ -536,6 +542,12 @@
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <!-- Slimscroll (merge into adminlte.js) -->
+
+<script>
+    var AdminLTEOptions = {
+        enableControlSidebar: false
+    };
+</script>
 <!-- AdminLTE App -->
 <script src="{{ elixir('assets/power-m/js/app.min.js') }}"></script>
 </body>

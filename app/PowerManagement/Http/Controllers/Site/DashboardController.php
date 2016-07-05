@@ -14,6 +14,6 @@ class DashboardController extends BaseController
 {
     public function index()
     {
-        return view('power-management.common.base');
+        return view('power-management.common.admin');
     }
 }
