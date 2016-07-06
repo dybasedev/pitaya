@@ -6,7 +6,7 @@
  * Created at: 2016/07/01 23:37
  */
 
-namespace CloudGo\Foundation\Authentication;
+namespace ActLoudBur\Foundation\Authentication;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +15,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * 
  * 管理员模型
  *
- * @package CloudGo\Foundation\Authentication
+ * @package ActLoudBur\Foundation\Authentication
  */
 class Administrator extends Authenticatable
 {

@@ -8,7 +8,7 @@
 
 return [
     'providers' => [
-        CloudGo\BusinessPlatform\Providers\RouterRegisterProvider::class,
-        CloudGo\PowerManagement\Providers\RouteServiceProvider::class,
+        ActLoudBur\BusinessPlatform\Providers\RouterRegisterProvider::class,
+        ActLoudBur\PowerManagement\Providers\RouteServiceProvider::class,
     ]
 ];

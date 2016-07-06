@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Http\Middleware;
+namespace ActLoudBur\Foundation\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Http\Middleware;
+namespace ActLoudBur\Foundation\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

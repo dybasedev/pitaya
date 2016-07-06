@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    CloudGo\Foundation\Http\Kernel::class
+    ActLoudBur\Foundation\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    CloudGo\Foundation\Console\Kernel::class
+    ActLoudBur\Foundation\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    CloudGo\Foundation\Exceptions\Handler::class
+    ActLoudBur\Foundation\Exceptions\Handler::class
 );
 
 /*

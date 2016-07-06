@@ -6,7 +6,7 @@
  * Created at: 2016/07/04 14:14
  */
 
-namespace CloudGo\PowerManagement\Providers;
+namespace ActLoudBur\PowerManagement\Providers;
 
 
 use Illuminate\Support\AggregateServiceProvider;

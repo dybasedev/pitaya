@@ -6,14 +6,14 @@
  * Created at: 2016/07/01 23:30
  */
 
-namespace CloudGo\Business\Contracts;
+namespace ActLoudBur\Business\Contracts;
 
 /**
  * Interface Consumable
  * 
  * 消费品接口
  *
- * @package CloudGo\Business\Contracts
+ * @package ActLoudBur\Business\Contracts
  */
 interface Consumable
 {

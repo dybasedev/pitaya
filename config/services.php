@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => CloudGo\Foundation\User::class,
+        'model' => ActLoudBur\Foundation\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

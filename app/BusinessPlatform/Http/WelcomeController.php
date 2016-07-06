@@ -6,14 +6,14 @@
  * Created at: 2016/07/02 11:16
  */
 
-namespace CloudGo\BusinessPlatform\Http;
+namespace ActLoudBur\BusinessPlatform\Http;
 
 /**
  * Class WelcomeController
  *
  * 用于测试路由可用的控制器,临时的
  *
- * @package CloudGo\BusinessPlatform\Http
+ * @package ActLoudBur\BusinessPlatform\Http
  */
 class WelcomeController extends BaseController
 {

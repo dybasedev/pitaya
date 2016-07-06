@@ -6,7 +6,7 @@
  * Created at: 2016/07/04 15:21
  */
 
-namespace CloudGo\PowerManagement\Http\Requests;
+namespace ActLoudBur\PowerManagement\Http\Requests;
 
 class LoginRequest extends Request
 {

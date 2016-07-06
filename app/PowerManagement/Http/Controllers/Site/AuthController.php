@@ -6,18 +6,18 @@
  * Create Datetime: 2016/7/3 0:20
  */
 
-namespace CloudGo\PowerManagement\Http\Controllers\Site;
+namespace ActLoudBur\PowerManagement\Http\Controllers\Site;
 
 
-use CloudGo\PowerManagement\Http\BaseController;
-use CloudGo\PowerManagement\Http\Requests\LoginRequest;
+use ActLoudBur\PowerManagement\Http\BaseController;
+use ActLoudBur\PowerManagement\Http\Requests\LoginRequest;
 use Auth;
 use Illuminate\Contracts\Foundation\Application;
 
 /**
  * Class AuthController
  *
- * @package CloudGo\PowerManagement\Http\Controllers\Site
+ * @package ActLoudBur\PowerManagement\Http\Controllers\Site
  */
 class AuthController extends BaseController
 {

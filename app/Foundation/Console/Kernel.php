@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Console;
+namespace ActLoudBur\Foundation\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

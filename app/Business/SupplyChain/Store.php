@@ -6,7 +6,7 @@
  * Created at: 2016/07/02 10:22
  */
 
-namespace CloudGo\Business\SupplyChain;
+namespace ActLoudBur\Business\SupplyChain;
 
 /**
  * Class Store
@@ -15,7 +15,7 @@ namespace CloudGo\Business\SupplyChain;
  * 
  * 店铺模型主要是针对系统为多商家模式时的使用方案,对于单商家仅会存在一个店铺
  *
- * @package CloudGo\Business\SupplyChain
+ * @package ActLoudBur\Business\SupplyChain
  */
 class Store
 {

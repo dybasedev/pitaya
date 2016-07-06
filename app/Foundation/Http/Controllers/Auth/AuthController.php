@@ -1,10 +1,10 @@
 <?php
 
-namespace CloudGo\Foundation\Http\Controllers\Auth;
+namespace ActLoudBur\Foundation\Http\Controllers\Auth;
 
-use CloudGo\Foundation\User;
+use ActLoudBur\Foundation\User;
 use Validator;
-use CloudGo\Foundation\Http\Controllers\Controller;
+use ActLoudBur\Foundation\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

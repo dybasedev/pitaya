@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Providers;
+namespace ActLoudBur\Foundation\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'CloudGo\Foundation\Model' => 'CloudGo\Foundation\Policies\ModelPolicy',
+        'ActLoudBur\Foundation\Model' => 'ActLoudBur\Foundation\Policies\ModelPolicy',
     ];
 
     /**

@@ -6,9 +6,9 @@
  * Created at: 2016/07/04 15:36
  */
 
-namespace CloudGo\PowerManagement\Http\Controllers\Site;
+namespace ActLoudBur\PowerManagement\Http\Controllers\Site;
 
-use CloudGo\PowerManagement\Http\BaseController;
+use ActLoudBur\PowerManagement\Http\BaseController;
 
 class DashboardController extends BaseController
 {

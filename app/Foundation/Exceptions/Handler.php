@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Exceptions;
+namespace ActLoudBur\Foundation\Exceptions;
 
 use Exception;
 use Illuminate\Validation\ValidationException;

@@ -72,12 +72,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => CloudGo\Foundation\Authentication\User::class,
+            'model' => ActLoudBur\Foundation\Authentication\User::class,
         ],
         
         'administrators' => [
             'driver' => 'eloquent',
-            'model' => CloudGo\Foundation\Authentication\Administrator::class,
+            'model' => ActLoudBur\Foundation\Authentication\Administrator::class,
         ]
 
         // 'users' => [

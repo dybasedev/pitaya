@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Http\Requests;
+namespace ActLoudBur\Foundation\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

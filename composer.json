@@ -1,5 +1,5 @@
 {
-    "name": "dybasedev/cloud-go",
+    "name": "dybasedev/actloudbur",
     "description": "Used to quickly build electric business platform",
     "keywords": ["business", "laravel"],
     "license": "MIT",
@@ -23,7 +23,7 @@
             "database"
         ],
         "psr-4": {
-            "CloudGo\\": "app/"
+            "ActLoudBur\\": "app/"
         }
     },
     "autoload-dev": {

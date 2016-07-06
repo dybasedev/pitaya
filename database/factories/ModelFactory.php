@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(CloudGo\Foundation\User::class, function (Faker\Generator $faker) {
+$factory->define(ActLoudBur\Foundation\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,

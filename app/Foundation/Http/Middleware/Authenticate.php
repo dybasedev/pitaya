@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Http\Middleware;
+namespace ActLoudBur\Foundation\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

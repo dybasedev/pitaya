@@ -6,7 +6,7 @@
  * Created at: 2016/07/04 15:24
  */
 
-namespace CloudGo\PowerManagement\Http\Requests;
+namespace ActLoudBur\PowerManagement\Http\Requests;
 
 
 use Illuminate\Foundation\Http\FormRequest;

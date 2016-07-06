@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Console\Commands;
+namespace ActLoudBur\Foundation\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

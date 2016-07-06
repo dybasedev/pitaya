@@ -6,7 +6,7 @@
  * Created at: 2016/07/01 23:32
  */
 
-namespace CloudGo\BusinessPlatform\Http;
+namespace ActLoudBur\BusinessPlatform\Http;
 
 use Illuminate\Routing\Controller;
 
@@ -15,7 +15,7 @@ use Illuminate\Routing\Controller;
  * 
  * 基础控制器
  *
- * @package CloudGo\BusinessPlatform\Http
+ * @package ActLoudBur\BusinessPlatform\Http
  */
 abstract class BaseController extends Controller
 {

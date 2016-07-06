@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Providers;
+namespace ActLoudBur\Foundation\Providers;
 
 use Illuminate\Support\AggregateServiceProvider;
 

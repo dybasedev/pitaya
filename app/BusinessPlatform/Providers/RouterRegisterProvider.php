@@ -6,7 +6,7 @@
  * Created at: 2016/07/02 11:10
  */
 
-namespace CloudGo\BusinessPlatform\Providers;
+namespace ActLoudBur\BusinessPlatform\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -14,7 +14,7 @@ use Illuminate\Support\ServiceProvider;
 /**
  * Class RouterRegisterProvider
  *
- * @package CloudGo\BusinessPlatform\Providers
+ * @package ActLoudBur\BusinessPlatform\Providers
  */
 class RouterRegisterProvider extends ServiceProvider
 {
@@ -29,7 +29,7 @@ class RouterRegisterProvider extends ServiceProvider
     }
     
     public function boot(Router $router) {
-        $router->group(['namespace' => 'CloudGo\BusinessPlatform\Http'], function (Router $router) {
+        $router->group(['namespace' => 'ActLoudBur\BusinessPlatform\Http'], function (Router $router) {
             $router->get('/', 'WelcomeController@index');
         });
     }

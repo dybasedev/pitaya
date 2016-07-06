@@ -6,14 +6,14 @@
  * Created at: 2016/07/02 00:58
  */
 
-namespace CloudGo\Business\SupplyChain\Consumables;
+namespace ActLoudBur\Business\SupplyChain\Consumables;
 
 /**
  * Class Category
  * 
  * 消费品分类模型
  *
- * @package CloudGo\Business\SupplyChain\Consumables
+ * @package ActLoudBur\Business\SupplyChain\Consumables
  */
 class Category
 {

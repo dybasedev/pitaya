@@ -1,8 +1,8 @@
 <?php
 
-namespace CloudGo\Foundation\Http\Controllers\Auth;
+namespace ActLoudBur\Foundation\Http\Controllers\Auth;
 
-use CloudGo\Foundation\Http\Controllers\Controller;
+use ActLoudBur\Foundation\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

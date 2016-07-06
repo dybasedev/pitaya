@@ -156,7 +156,7 @@ return [
         /*
          * Application Service Providers...
          */
-        CloudGo\Foundation\Providers\AppServiceProvider::class,
+        ActLoudBur\Foundation\Providers\AppServiceProvider::class,
 
         
     ],

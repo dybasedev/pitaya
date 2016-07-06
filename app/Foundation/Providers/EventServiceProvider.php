@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Providers;
+namespace ActLoudBur\Foundation\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'CloudGo\Foundation\Events\SomeEvent' => [
-            'CloudGo\Foundation\Listeners\EventListener',
+        'ActLoudBur\Foundation\Events\SomeEvent' => [
+            'ActLoudBur\Foundation\Listeners\EventListener',
         ],
     ];
 

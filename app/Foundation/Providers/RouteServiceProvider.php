@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudGo\Foundation\Providers;
+namespace ActLoudBur\Foundation\Providers;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\ProviderRepository;
@@ -16,7 +16,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'CloudGo';
+    protected $namespace = 'ActLoudBur';
 
     /**
      * Define your route model bindings, pattern filters, etc.
