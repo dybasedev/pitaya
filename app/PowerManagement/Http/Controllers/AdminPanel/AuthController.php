@@ -6,13 +6,14 @@
  * Create Datetime: 2016/7/3 0:20
  */
 
-namespace ActLoudBur\PowerManagement\Http\Controllers\Site;
+namespace ActLoudBur\PowerManagement\Http\Controllers\AdminPanel;
 
 
 use ActLoudBur\PowerManagement\Http\BaseController;
 use ActLoudBur\PowerManagement\Http\Requests\LoginRequest;
 use Auth;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\MessageBag;
 
 /**
  * Class AuthController
@@ -60,7 +61,7 @@ class AuthController extends BaseController
             return redirect()->route('power-m.dashboard');
         }
         
-        return back();
+        return back()->withErrors(['forbidden' => trans('auth.failed')]);
     }
 
     /**

@@ -29,14 +29,24 @@
     <div class="login-box-body">
         <p class="login-box-msg">{{ trans('power-m.common.login.login-form-guide') }}</p>
 
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('power-m.auth.login') }}" method="post">
             {{ csrf_field() }}
             <div class="form-group has-feedback">
-                <input type="account" class="form-control" placeholder="{{ trans('power-m.common.login.account') }}">
+                <input type="text" name="account" class="form-control" placeholder="{{ trans('power-m.common.login.account') }}">
                 <span class="fa fa-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="{{ trans('power-m.common.login.password') }}">
+                <input type="password" name="password" class="form-control" placeholder="{{ trans('power-m.common.login.password') }}">
                 <span class="fa fa-lock form-control-feedback"></span>
             </div>
             <div class="row">

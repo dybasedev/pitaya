@@ -28,16 +28,19 @@ class RouteServiceProvider extends ServiceProvider
 
     public function boot(Router $router)
     {
-        $router->group(['namespace' => $this->namespace, 'prefix' => 'admin'], function (Router $router) {
-            $router->group(['namespace' => 'Site', 'prefix' => 'web'], function (Router $router) {
-                $router->get('login', ['uses' => 'AuthController@getLoginForm', 'as' => 'power-m.auth.login-form']);
-                $router->post('login', ['uses' => 'AuthController@login', 'as' => 'power-m.auth.login']);
-                
-                $router->group([], function (Router $router) {
-                    $router->get('dashboard', ['uses' => 'DashboardController@index']);
+        $router->group(['namespace' => $this->namespace, 'prefix' => 'admin', 'middleware' => ['web']],
+            function (Router $router) {
+                $router->group(['namespace' => 'AdminPanel', 'prefix' => 'web'], function (Router $router) {
+                    $router->get('login', ['uses' => 'AuthController@getLoginForm', 'as' => 'power-m.auth.login-form']);
+                    $router->post('login', ['uses' => 'AuthController@login', 'as' => 'power-m.auth.login']);
+
+                    $router->group(['middleware' => ['admin-auth', 'admin-panel']], function (Router $router) {
+                        $router->get('dashboard', ['uses' => 'DashboardController@index', 'as' => 'power-m.dashboard']);
+                    });
                 });
+
+                $router->get('/', 'AdminPanel\DashboardController@visit');
             });
-        });
     }
 
 }

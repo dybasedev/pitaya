@@ -256,6 +256,7 @@
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
+            @section('sidebar-header')
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
@@ -277,6 +278,7 @@
                 </div>
             </form>
             <!-- /.search form -->
+            @show
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 @include('power-management.common.sidebar', ['sidebarItems' => $sidebarItems])
