@@ -13,9 +13,24 @@ class UserGenerateSeeder extends Seeder
      */
     public function run()
     {
+        Administrator::truncate();
+        User::truncate();
+        
         Administrator::create([
             'account'  => 'administrator',
             'password' => bcrypt('administrator'),
+        ]);
+
+        User::create([
+            'name'     => 'Dumper',
+            'email'    => 'dumper@gmail.com',
+            'password' => bcrypt('123456'),
+        ]);
+
+        User::create([
+            'name'     => 'Controller',
+            'email'    => 'controller@gmail.com',
+            'password' => bcrypt('123456'),
         ]);
     }
 }

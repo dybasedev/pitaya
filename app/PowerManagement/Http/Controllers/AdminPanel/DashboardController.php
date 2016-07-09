@@ -13,11 +13,15 @@ use ActLoudBur\PowerManagement\Http\BaseController;
 /**
  * Class DashboardController
  *
+ * 仪表盘控制台
+ *
  * @package ActLoudBur\PowerManagement\Http\Controllers\AdminPanel
  */
 class DashboardController extends BaseController
 {
     /**
+     * 默认访问
+     * 
      * @return \Illuminate\Http\RedirectResponse
      */
     public function visit()

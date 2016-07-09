@@ -13,7 +13,6 @@ use ActLoudBur\PowerManagement\Http\BaseController;
 use ActLoudBur\PowerManagement\Http\Requests\LoginRequest;
 use Auth;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Support\MessageBag;
 
 /**
  * Class AuthController

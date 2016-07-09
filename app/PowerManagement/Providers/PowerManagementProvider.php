@@ -8,10 +8,14 @@
 
 namespace ActLoudBur\PowerManagement\Providers;
 
-
 use ActLoudBur\PowerManagement\Frame\SidebarManager;
 use Illuminate\Support\AggregateServiceProvider;
 
+/**
+ * Class PowerManagementProvider
+ *
+ * @package ActLoudBur\PowerManagement\Providers
+ */
 class PowerManagementProvider extends AggregateServiceProvider
 {
     protected $providers = [];

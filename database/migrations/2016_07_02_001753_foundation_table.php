@@ -37,6 +37,7 @@ class FoundationTable extends Migration
             $blueprint->increments('id')->comment('管理员 ID');
             $blueprint->string('account')->unique()->comment('管理员账户');
             $blueprint->string('password')->comment('管理员密码');
+            $blueprint->rememberToken();
             $blueprint->timestamps();
         });
     }

@@ -8,10 +8,16 @@
 
 namespace ActLoudBur\PowerManagement\Providers;
 
-
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class RouteServiceProvider
+ * 
+ * 路由定义组件
+ *
+ * @package ActLoudBur\PowerManagement\Providers
+ */
 class RouteServiceProvider extends ServiceProvider
 {
     protected $namespace = 'ActLoudBur\PowerManagement\Http\Controllers';
@@ -33,9 +39,12 @@ class RouteServiceProvider extends ServiceProvider
                 $router->group(['namespace' => 'AdminPanel', 'prefix' => 'web'], function (Router $router) {
                     $router->get('login', ['uses' => 'AuthController@getLoginForm', 'as' => 'power-m.auth.login-form']);
                     $router->post('login', ['uses' => 'AuthController@login', 'as' => 'power-m.auth.login']);
+                    $router->any('logout', ['uses' => 'AuthController@logout', 'as' => 'power-m.auth.logout']);
 
                     $router->group(['middleware' => ['admin-auth', 'admin-panel']], function (Router $router) {
                         $router->get('dashboard', ['uses' => 'DashboardController@index', 'as' => 'power-m.dashboard']);
+                        $router->resource('member/user', 'Member\UserController',
+                            ['names' => ['index' => 'power-m.admin.member.user.index']]);
                     });
                 });
 

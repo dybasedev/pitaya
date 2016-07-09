@@ -8,6 +8,13 @@
 
 namespace ActLoudBur\PowerManagement\Http\Requests;
 
+/**
+ * Class LoginRequest
+ * 
+ * 登录表单验证
+ *
+ * @package ActLoudBur\PowerManagement\Http\Requests
+ */
 class LoginRequest extends Request
 {
     /**
