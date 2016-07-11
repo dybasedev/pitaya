@@ -157,7 +157,8 @@ return [
          * Application Service Providers...
          */
         ActLoudBur\Foundation\Providers\AppServiceProvider::class,
-
+        ActLoudBur\PowerManagement\Providers\PowerManagementProvider::class,
+        
         
     ],
 

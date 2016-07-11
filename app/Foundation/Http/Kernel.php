@@ -2,6 +2,8 @@
 
 namespace ActLoudBur\Foundation\Http;
 
+use ActLoudBur\PowerManagement\Http\Middleware\AdminAuth;
+use ActLoudBur\PowerManagement\Http\Middleware\AdministratorControlPanel;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -49,5 +51,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \ActLoudBur\Foundation\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'admin-panel' => AdministratorControlPanel::class,
+        'admin-auth' => AdminAuth::class,
     ];
 }

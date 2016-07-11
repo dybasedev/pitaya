@@ -13,5 +13,8 @@ use Illuminate\Routing\Controller;
 
 class BaseController extends Controller
 {
-
+    /**
+     * 默认分页每页数据条数
+     */
+    const PER_PAGE = 20;
 }

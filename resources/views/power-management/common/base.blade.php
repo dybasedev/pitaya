@@ -256,6 +256,7 @@
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
+            @section('sidebar-header')
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
@@ -277,24 +278,10 @@
                 </div>
             </form>
             <!-- /.search form -->
+            @show
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="header">{{ trans('power-m.framework.quick-navigation') }}</li>
-                <li class="active">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>{{ trans('power-m.framework.dashboard') }}</span>
-
-                        <span class="pull-right-container">
-                          <small class="label pull-right bg-red">Tip</small>
-                        </span>
-                    </a>
-                </li>
-                <li class="header">{{ trans('power-m.framework.main-navigation') }}</li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-circle-o text-green"></i> <span>{{ trans('power-m.framework.example') }}</span>
-                    </a>
-                </li>
+                @include('power-management.common.sidebar', ['sidebarItems' => $sidebarItems])
             </ul>
         </section>
         <!-- /.sidebar -->
