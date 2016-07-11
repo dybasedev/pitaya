@@ -8,6 +8,7 @@
 
 namespace ActLoudBur\Foundation\Authentication\Admin;
 
+use ActLoudBur\Foundation\Authentication\Administrator;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -19,5 +20,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
-
+    /**
+     * 关联的管理员模型
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function administrators()
+    {
+        return $this->belongsToMany(Administrator::class, 'administrator_role', 'role_id', 'administrator_id')
+                    ->withTimestamps();
+    }
 }
