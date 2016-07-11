@@ -8,6 +8,7 @@
 
 namespace ActLoudBur\Foundation\Authentication;
 
+use ActLoudBur\Business\SupplyChain\BusinessContributorTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -19,6 +20,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class User extends Authenticatable
 {
+    use BusinessContributorTrait;
+    
     protected $fillable = [
         'name', 'email', 'password'
     ];

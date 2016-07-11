@@ -8,6 +8,9 @@
 
 namespace ActLoudBur\Business\SupplyChain\Consumables\Goods;
 
+use ActLoudBur\Business\SupplyChain\Consumables\Category;
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Class Goods
  * 
@@ -15,7 +18,35 @@ namespace ActLoudBur\Business\SupplyChain\Consumables\Goods;
  *
  * @package ActLoudBur\Business\SupplyChain\Consumables\Goods
  */
-class Goods
+class Goods extends Model
 {
+    /**
+     * 关联的分类
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 
+    /**
+     * 关联的发布者
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function publisher()
+    {
+        return $this->morphTo();
+    }
+
+    /**
+     * 关联所属的商品 SKU 对象
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function skuItems()
+    {
+        return $this->hasMany(GoodsSpecification::class, 'goods_id', 'id');
+    }
 }

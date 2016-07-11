@@ -8,6 +8,9 @@
 
 namespace ActLoudBur\Business\SupplyChain\Consumables;
 
+use ActLoudBur\Business\SupplyChain\Consumables\Goods\CategoryTrait as GoodsCategoryTrait;
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Class Category
  * 
@@ -15,7 +18,17 @@ namespace ActLoudBur\Business\SupplyChain\Consumables;
  *
  * @package ActLoudBur\Business\SupplyChain\Consumables
  */
-class Category
+class Category extends Model
 {
-
+    use GoodsCategoryTrait;
+    
+    /**
+     * 关联的消费品
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function consumables()
+    {
+        return $this->hasMany(Consumable::class, 'category_id', 'id');
+    }
 }

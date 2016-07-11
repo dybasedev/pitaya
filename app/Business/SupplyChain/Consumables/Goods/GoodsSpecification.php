@@ -9,6 +9,7 @@
 namespace ActLoudBur\Business\SupplyChain\Consumables\Goods;
 
 use ActLoudBur\Business\Contracts\Consumable;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class GoodsSpecification
@@ -17,7 +18,15 @@ use ActLoudBur\Business\Contracts\Consumable;
  *
  * @package ActLoudBur\Business\SupplyChain\Consumables\Goods
  */
-class GoodsSpecification implements Consumable
+class GoodsSpecification extends Model implements Consumable
 {
-
+    /**
+     * 关联的所属的商品 SPU 模型
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function goods()
+    {
+        return $this->belongsTo(GoodsSpecification::class, 'goods_id', 'id');
+    }
 }

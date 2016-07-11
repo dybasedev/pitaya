@@ -39,6 +39,25 @@ class FoundationTable extends Migration
             $blueprint->string('password')->comment('管理员密码');
             $blueprint->timestamps();
         });
+
+        Schema::create('roles', function (Blueprint $blueprint) {
+            $blueprint->comment = '后台管理员角色表';
+
+            $blueprint->increments('id');
+            $blueprint->string('name')->unique()->comment('角色标识符');
+            $blueprint->string('display_name')->index()->comment('角色名称');
+            $blueprint->string('description')->comment('角色简介');
+            $blueprint->timestamps();
+        });
+
+        Schema::create('administrator_role', function (Blueprint $blueprint) {
+            $blueprint->integer('administrator_id')->unsigned()->index()->comment('管理员 ID');
+            $blueprint->integer('role_id')->unsigned()->index()->comment('角色 ID');
+            $blueprint->boolean('primary_reference')->default(false)->comment('主要参考，在多个角色授权的情况下，权限冲突则以主要参考为基准');
+            $blueprint->timestamps();
+
+            $blueprint->primary(['administrator_id', 'role_id'], 'primary_index');
+        });
     }
 
     /**
@@ -51,5 +70,7 @@ class FoundationTable extends Migration
         Schema::drop('users');
         Schema::drop('administrators');
         Schema::drop('password_resets');
+        Schema::drop('roles');
+        Schema::drop('administrator_role');
     }
 }
