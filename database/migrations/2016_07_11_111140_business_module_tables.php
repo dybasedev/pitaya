@@ -92,6 +92,49 @@ class BusinessModuleTables extends Migration
             $blueprint->integer('rating')->default(0)->unsigned()->index()->comment('店铺评分、评级（外部参与，内部由权重决定）');
             $blueprint->timestamps();
         });
+
+        Schema::create('goods_comments', function (Blueprint $blueprint) {
+            $blueprint->comment = '商品评论表';
+
+            $blueprint->increments('id');
+            $blueprint->integer('evaluate_id')->unsigned()->index()->comment('评价 ID');
+            $blueprint->integer('goods_id')->unsigned()->index()->comment('商品 ID');
+            $blueprint->integer('publisher_id')->unsigned()->index()->comment('用户 ID');
+            $blueprint->string('publisher_type')->index()->comment('用户类型');
+            $blueprint->text('content')->comment('追加或店主回复的评论内容');
+            $blueprint->boolean('anonymous')->default(true)->comment('是否匿名');
+            $blueprint->timestamps();
+        });
+
+        Schema::create('goods_evaluates', function (Blueprint $blueprint) {
+            $blueprint->comment = '商品评价表';
+
+            $blueprint->increments('id');
+            $blueprint->integer('goods_id')->unsigned()->index()->comment('商品 ID');
+            $blueprint->integer('user_id')->unsigned()->index()->comment('用户 ID');
+            $blueprint->boolean('rank')->default(5)->comment('整体评分');
+            $blueprint->boolean('deliver')->default(5)->comment('物流评价');
+            $blueprint->boolean('service')->default(5)->comment('服务评价');
+            $blueprint->boolean('anonymous')->default(true)->comment('是否匿名');
+            $blueprint->text('content')->comment('评价内容');
+            $blueprint->boolean('has_comment')->default(false)->comment('是否有追加的评论');
+            $blueprint->timestamps();
+        });
+
+        Schema::create('shopping_cart_items', function (Blueprint $blueprint) {
+            $blueprint->comment = '购物车项表';
+
+            $blueprint->bigIncrements('id');
+            $blueprint->integer('user_id')->nullable()->index()->unsigned()->comment('用户 ID, (对于未登录时)可以为空');
+            $blueprint->string('consumable_type')->index()->comment('消费品类型');
+            $blueprint->integer('consumable_id')->index()->unsigned()->comment('消费品 ID');
+            $blueprint->string('token')->nullable()->index()->comment('会话 TOKEN,对于未登录状态下加入购物车,便与其直接合并至后续会话');
+            $blueprint->string('consumable_name')->index()->nullable()->comment('消费品名称缓存值');
+            $blueprint->integer('original_price')->unsigned()->index()->comment('消费品原始价格');
+            $blueprint->integer('actual_price')->unsigned()->index()->comment('消费品实际应付价格');
+            $blueprint->integer('amount')->unsigned()->comment('购买数量');
+            $blueprint->timestamps();
+        });
     }
 
     /**
@@ -106,5 +149,8 @@ class BusinessModuleTables extends Migration
         Schema::drop('goods');
         Schema::drop('goods_specifications');
         Schema::drop('stores');
+        Schema::drop('goods_evaluates');
+        Schema::drop('goods_comments');
+        Schema::drop('shopping_cart_items');
     }
 }

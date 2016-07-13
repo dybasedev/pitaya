@@ -52,6 +52,8 @@ class FoundationTable extends Migration
         });
 
         Schema::create('administrator_role', function (Blueprint $blueprint) {
+            $blueprint->comment = '管理员角色关联表';
+            
             $blueprint->integer('administrator_id')->unsigned()->index()->comment('管理员 ID');
             $blueprint->integer('role_id')->unsigned()->index()->comment('角色 ID');
             $blueprint->boolean('primary_reference')->default(false)->comment('主要参考，在多个角色授权的情况下，权限冲突则以主要参考为基准');

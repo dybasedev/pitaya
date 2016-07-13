@@ -49,4 +49,14 @@ class Goods extends Model
     {
         return $this->hasMany(GoodsSpecification::class, 'goods_id', 'id');
     }
+
+    /**
+     * 关联的商品评价
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function evaluates()
+    {
+        return $this->hasMany(GoodsEvaluate::class, 'goods_id', 'id');
+    }
 }
