@@ -21,6 +21,16 @@ use Illuminate\Database\Eloquent\Model;
 class GoodsSpecification extends Model implements Consumable
 {
     /**
+     * 关联的店铺
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function store()
+    {
+        return $this->belongsTo(Store::class, 'store_id', 'id');
+    }
+    
+    /**
      * 关联的所属的商品 SPU 模型
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

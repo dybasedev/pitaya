@@ -9,6 +9,7 @@
 namespace ActLoudBur\Business\SupplyChain;
 
 use ActLoudBur\Business\SupplyChain\Consumables\Consumable;
+use ActLoudBur\Business\SupplyChain\Consumables\Goods\Goods;
 use ActLoudBur\Foundation\Authentication\UserRelateTrait;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,10 +27,22 @@ class Store extends Model
     use UserRelateTrait;
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     * 店铺下的消费品
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function consumables()
     {
-        return $this->morphMany(Consumable::class, 'publisher');
+        return $this->hasMany(Consumable::class, 'store_id', 'id');
+    }
+
+    /**
+     * 店铺下的商品
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function goods()
+    {
+        return $this->hasMany(Goods::class, 'store_id', 'id');
     }
 }

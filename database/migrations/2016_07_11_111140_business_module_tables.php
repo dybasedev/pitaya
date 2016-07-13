@@ -28,6 +28,7 @@ class BusinessModuleTables extends Migration
 
             $blueprint->increments('id');
             $blueprint->integer('category_id')->unsigned()->comment('分类 ID');
+            $blueprint->integer('store_id')->unsigned()->comment('店铺 ID');
             $blueprint->integer('publisher_id')->nullable()->unsigned()->comment('发布者 ID');
             $blueprint->string('publisher_type')->nullable()->comment('发布者类型');
             $blueprint->string('consumable_type')->nullable()->comment('消费品类型');
@@ -47,6 +48,7 @@ class BusinessModuleTables extends Migration
             $blueprint->integer('category_id')->unsigned()->index()->comment('全局分类 ID');
             $blueprint->integer('publisher_id')->nullable()->unsigned()->comment('发布者 ID');
             $blueprint->string('publisher_type')->nullable()->comment('发布者类型');
+            $blueprint->integer('store_id')->unsigned()->comment('店铺 ID');
             $blueprint->string('name')->index()->comment('商品名称');
             $blueprint->integer('maximum_price')->unsigned()->index()->comment('最高价格');
             $blueprint->integer('minimum_price')->unsigned()->index()->comment('最低价格');
@@ -65,6 +67,7 @@ class BusinessModuleTables extends Migration
 
             $blueprint->increments('id');
             $blueprint->integer('goods_id')->unsigned()->index()->comment('商品 ID');
+            $blueprint->integer('store_id')->unsigned()->comment('店铺 ID');
             $blueprint->string('name')->nullable()->index()->comment('名称');
             $blueprint->string('subtitle')->nullable()->comment('副标题');
             $blueprint->integer('origin_price')->unsigned()->index()->comment('原始价格');

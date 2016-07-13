@@ -19,6 +19,8 @@ class FoundationTable extends Migration
             $blueprint->string('name')->comment('会员账户名');
             $blueprint->string('email')->unique()->comment('会员 E-mail');
             $blueprint->string('password')->comment('会员密码');
+            $blueprint->boolean('type')->default(1)->comment('会员类型, 1 普通 2 注册商家');
+            $blueprint->boolean('status')->default(false)->comment('会员状态, 0 表示暂不可用, 1 表示正常使用');
             $blueprint->rememberToken();
             $blueprint->timestamps();
         });

@@ -31,6 +31,16 @@ class Consumable extends Model
     }
 
     /**
+     * 关联的店铺
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function store()
+    {
+        return $this->belongsTo(Store::class, 'store_id', 'id');
+    }
+
+    /**
      * 关联的发布者
      * 
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo

@@ -9,6 +9,7 @@
 namespace ActLoudBur\Business\SupplyChain\Consumables\Goods;
 
 use ActLoudBur\Business\SupplyChain\Consumables\Category;
+use ActLoudBur\Business\SupplyChain\Store;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -20,6 +21,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Goods extends Model
 {
+    /**
+     * 关联的店铺
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function store()
+    {
+        return $this->belongsTo(Store::class, 'store_id', 'id');
+    }
+    
     /**
      * 关联的分类
      * 
