@@ -23,6 +23,41 @@ use DB;
 class Order extends Model
 {
     /**
+     * 订单初始状态
+     */
+    const STATUS_BEGIN = 'a0';
+
+    /**
+     * 订单待支付状态
+     */
+    const STATUS_WAIT_FOR_PAYMENT = 'wp';
+
+    /**
+     * 订单待发货状态
+     */
+    const STATUS_WAIT_FOR_DISPATCH = 'wd';
+
+    /**
+     * 订单待收货状态
+     */
+    const STATUS_WAIT_FOR_RECEIPT = 'wr';
+
+    /**
+     * 订单待评价状态
+     */
+    const STATUS_WAIT_FOR_EVALUATE = 'we';
+
+    /**
+     * 订单待退货处理
+     */
+    const STATUS_WAIT_FOR_REFUND_PROCESS = 'wR';
+    
+    /**
+     * 订单终结状态
+     */
+    const STATUS_TERMINATE = 'tm';
+
+    /**
      * @var array
      */
     protected $callbackStack = [];

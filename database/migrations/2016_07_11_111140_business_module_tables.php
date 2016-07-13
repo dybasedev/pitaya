@@ -116,7 +116,7 @@ class BusinessModuleTables extends Migration
             $blueprint->integer('goods_id')->unsigned()->index()->comment('商品 ID');
             $blueprint->integer('user_id')->unsigned()->index()->comment('用户 ID');
             $blueprint->boolean('rank')->default(5)->comment('整体评分');
-            $blueprint->boolean('deliver')->default(5)->comment('物流评价');
+            $blueprint->boolean('logistics')->default(5)->comment('物流评价');
             $blueprint->boolean('service')->default(5)->comment('服务评价');
             $blueprint->boolean('anonymous')->default(true)->comment('是否匿名');
             $blueprint->text('content')->comment('评价内容');
@@ -146,12 +146,31 @@ class BusinessModuleTables extends Migration
             $blueprint->string('order_number')->unique()->nullable()->comment('订单号');
             $blueprint->integer('store_id')->index()->unsigned()->comment('订单所属店铺 ID');
             $blueprint->char('status_code', 2)->index()->comment('订单状态码');
+            $blueprint->integer('amount')->index()->unsigned()->comment('订单总额');
             $blueprint->integer('user_id')->unsigned()->index()->comment('用户 ID');
             $blueprint->timestamp('effective_at')->nullable()->comment('生效时间');
             $blueprint->timestamp('terminated_at')->nullable()->comment('订单终结时间');
             $blueprint->timestamps();
 
             // TODO 还差字段,正在思考和完善中
+        });
+        
+        Schema::create('order_archives', function (Blueprint $blueprint) {
+            $blueprint->comment = '订单档案数据表';
+
+            $blueprint->increments('id');
+            $blueprint->integer('order_id')->unique()->unsigned()->comment('订单 ID');
+            $blueprint->string('pay_code')->nullable()->comment('支付编号');
+            $blueprint->string('payment')->nullable()->comment('支付方式');
+            $blueprint->string('refund_code')->nullable()->comment('退款编号');
+            
+            // TODO 还差字段
+            
+            $blueprint->timestamp('paid_at')->nullable()->comment('支付时间');
+            $blueprint->timestamp('refund_at')->nullable()->comment('退款时间');
+            $blueprint->timestamp('dispatched_at')->nullable()->comment('发货时间');
+            $blueprint->timestamp('receipted_at')->nullable()->comment('收货时间');
+            $blueprint->timestamps();
         });
     }
 
@@ -170,5 +189,6 @@ class BusinessModuleTables extends Migration
         Schema::drop('goods_evaluates');
         Schema::drop('goods_comments');
         Schema::drop('shopping_cart_items');
+        Schema::drop('orders');
     }
 }
