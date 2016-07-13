@@ -83,7 +83,7 @@ class BusinessModuleTables extends Migration
             $blueprint->comment = '店铺表';
 
             $blueprint->increments('id');
-            $blueprint->integer('user_id')->unsigned()->nullable()->comment('用户 ID');
+            $blueprint->integer('user_id')->unsigned()->nullable()->comment('用户 ID, 为空表示属于系统');
             $blueprint->string('name')->unique()->comment('店铺名称');
             $blueprint->text('description')->comment('店铺简介');
             $blueprint->boolean('status')->default(0)->comment('店铺状态，0 表示未审批，1 表示已审批（但不一定生效，需参考生效时间）');
@@ -137,6 +137,21 @@ class BusinessModuleTables extends Migration
             $blueprint->integer('actual_price')->unsigned()->index()->comment('消费品实际应付价格');
             $blueprint->integer('amount')->unsigned()->comment('购买数量');
             $blueprint->timestamps();
+        });
+
+        Schema::create('order', function (Blueprint $blueprint) {
+            $blueprint->comment = '订单表';
+
+            $blueprint->increments('id');
+            $blueprint->string('order_number')->unique()->nullable()->comment('订单号');
+            $blueprint->integer('store_id')->index()->unsigned()->comment('订单所属店铺 ID');
+            $blueprint->char('status_code', 2)->index()->comment('订单状态码');
+            $blueprint->integer('user_id')->unsigned()->index()->comment('用户 ID');
+            $blueprint->timestamp('effective_at')->nullable()->comment('生效时间');
+            $blueprint->timestamp('terminated_at')->nullable()->comment('订单终结时间');
+            $blueprint->timestamps();
+
+            // TODO 还差字段,正在思考和完善中
         });
     }
 
