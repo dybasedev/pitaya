@@ -146,7 +146,7 @@ class BusinessModuleTables extends Migration
             $blueprint->string('order_number')->unique()->nullable()->comment('订单号');
             $blueprint->integer('store_id')->index()->unsigned()->comment('订单所属店铺 ID');
             $blueprint->char('status_code', 2)->index()->comment('订单状态码');
-            $blueprint->integer('amount')->index()->unsigned()->comment('订单总额');
+            $blueprint->integer('aggregate')->index()->unsigned()->comment('订单总额');
             $blueprint->integer('user_id')->unsigned()->index()->comment('用户 ID');
             $blueprint->timestamp('effective_at')->nullable()->comment('生效时间');
             $blueprint->timestamp('terminated_at')->nullable()->comment('订单终结时间');
@@ -172,6 +172,21 @@ class BusinessModuleTables extends Migration
             $blueprint->timestamp('receipted_at')->nullable()->comment('收货时间');
             $blueprint->timestamps();
         });
+
+        Schema::create('order_specifications', function (Blueprint $blueprint) {
+            $blueprint->comment = '订单详情表';
+
+            $blueprint->increments('id');
+            $blueprint->integer('goods_id')->unsigned()->comment('商品 ID');
+            $blueprint->integer('amount')->unsigned()->comment('总量');
+            $blueprint->integer('original_price')->unsigned()->comment('原始单价');
+            $blueprint->integer('aggregate')->unsigned()->comment('总计');
+
+            $blueprint->string('goods_name')->nullable()->index()->comment('商品名称');
+            $blueprint->string('goods_specifications')->nullable()->comment('商品规格信息');
+            $blueprint->string('goods_image')->nullable()->comment('商品图片');
+            $blueprint->timestamps();
+        });
     }
 
     /**
@@ -190,5 +205,6 @@ class BusinessModuleTables extends Migration
         Schema::drop('goods_comments');
         Schema::drop('shopping_cart_items');
         Schema::drop('orders');
+        Schema::drop('order_archive');
     }
 }
