@@ -31,4 +31,14 @@ class Category extends Model
     {
         return $this->hasMany(Consumable::class, 'category_id', 'id');
     }
+
+    /**
+     * 关联的品牌
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function brands()
+    {
+        return $this->belongsToMany(Brand::class, 'brand_category', 'category_id', 'brand_id');
+    }
 }

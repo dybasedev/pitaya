@@ -41,6 +41,24 @@ class BusinessModuleTables extends Migration
             $blueprint->index(['publisher_type', 'publisher_id'], 'publisher_index');
         });
 
+        Schema::create('brands', function (Blueprint $blueprint) {
+            $blueprint->comment = '品牌表';
+
+            $blueprint->increments('id');
+            $blueprint->string('display_name')->index()->comment('品牌名称');
+            $blueprint->string('alias')->index()->nullable()->comment('品牌别名');
+            $blueprint->timestamps();
+        });
+        
+        Schema::create('brand_category', function (Blueprint $blueprint) {
+            $blueprint->comment = '品牌分类关联表';
+            
+            $blueprint->integer('brand_id')->unsigned()->index()->comment('品牌 ID');
+            $blueprint->integer('category_id')->unsigned()->index()->comment('分类 ID');
+            
+            $blueprint->primary(['brand_id', 'category_id'], 'brand_category');
+        });
+
         Schema::create('goods', function (Blueprint $blueprint) {
             $blueprint->comment = '商品（SPU）表';
 
