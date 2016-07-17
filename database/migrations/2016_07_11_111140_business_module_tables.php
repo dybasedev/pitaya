@@ -178,12 +178,13 @@ class BusinessModuleTables extends Migration
 
             $blueprint->increments('id');
             $blueprint->integer('order_id')->unique()->unsigned()->comment('订单 ID');
+            $blueprint->string('address')->index()->comment('地址');
+            $blueprint->boolean('logistics_type')->default(1)->comment('物流类型');
+            $blueprint->integer('logistics_price')->nullable()->comment('物流价格');
+            $blueprint->string('logistics_code')->nullable()->comment('物流编号');
             $blueprint->string('pay_code')->nullable()->comment('支付编号');
             $blueprint->string('payment')->nullable()->comment('支付方式');
             $blueprint->string('refund_code')->nullable()->comment('退款编号');
-            
-            // TODO 还差字段
-            
             $blueprint->timestamp('paid_at')->nullable()->comment('支付时间');
             $blueprint->timestamp('refund_at')->nullable()->comment('退款时间');
             $blueprint->timestamp('dispatched_at')->nullable()->comment('发货时间');
