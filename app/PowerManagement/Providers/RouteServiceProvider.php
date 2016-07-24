@@ -37,12 +37,12 @@ class RouteServiceProvider extends ServiceProvider
         $router->group(['namespace' => $this->namespace, 'prefix' => 'admin', 'middleware' => ['web']],
             function (Router $router) {
                 $router->group(['namespace' => 'AdminPanel', 'prefix' => 'web'], function (Router $router) {
-                    $router->get('login', ['uses' => 'AuthController@getLoginForm', 'as' => 'power-m.auth.login-form']);
-                    $router->post('login', ['uses' => 'AuthController@login', 'as' => 'power-m.auth.login']);
-                    $router->any('logout', ['uses' => 'AuthController@logout', 'as' => 'power-m.auth.logout']);
+                    $router->get('login', ['uses' => 'AuthController@getLoginForm', 'as' => 'power-m.admin.auth.login-form']);
+                    $router->post('login', ['uses' => 'AuthController@login', 'as' => 'power-m.admin.auth.login']);
+                    $router->any('logout', ['uses' => 'AuthController@logout', 'as' => 'power-m.admin.auth.logout']);
 
                     $router->group(['middleware' => ['admin-auth', 'admin-panel']], function (Router $router) {
-                        $router->get('dashboard', ['uses' => 'DashboardController@index', 'as' => 'power-m.dashboard']);
+                        $router->get('dashboard', ['uses' => 'DashboardController@index', 'as' => 'power-m.admin.dashboard']);
                         $router->resource('member/user', 'Member\UserController',
                             ['names' => ['index' => 'power-m.admin.member.user.index']]);
                     });

@@ -20,12 +20,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class User extends Authenticatable
 {
-    use BusinessContributorTrait;
-    
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name', 'email', 'password'
     ];
-    
+
+    /**
+     * @var array
+     */
     protected $hidden = [
         'password', 'remember_token'
     ];
