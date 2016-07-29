@@ -6,7 +6,7 @@
  * Create Datetime: 2016/7/3 0:18
  */
 
-namespace ActLoudBur\PowerManagement\Http;
+namespace ActLoudBur\PowerManagement\Http\Controllers;
 
 
 use Illuminate\Routing\Controller;

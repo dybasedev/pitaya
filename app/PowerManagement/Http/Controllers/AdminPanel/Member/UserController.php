@@ -9,7 +9,7 @@
 namespace ActLoudBur\PowerManagement\Http\Controllers\AdminPanel\Member;
 
 use ActLoudBur\Foundation\Authentication\User;
-use ActLoudBur\PowerManagement\Http\BaseController;
+use ActLoudBur\PowerManagement\Http\Controllers\BaseController;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 

@@ -8,7 +8,7 @@
 
 namespace ActLoudBur\PowerManagement\Http\Controllers\AdminPanel;
 
-use ActLoudBur\PowerManagement\Http\BaseController;
+use ActLoudBur\PowerManagement\Http\Controllers\BaseController;
 
 /**
  * Class DashboardController

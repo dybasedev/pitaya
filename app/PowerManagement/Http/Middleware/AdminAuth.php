@@ -22,7 +22,7 @@ class AdminAuth
 {
     public function handle($request, Closure $next)
     {
-        if (Auth::guard(config('power-m.auth.guard'))->guest()) {
+        if (Auth::guard(config('admin'))->guest()) {
             return redirect()->route('power-m.auth.login-form');
         }
 
