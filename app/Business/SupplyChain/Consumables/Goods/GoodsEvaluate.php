@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * 商品评价模型
  *
+ * 评价是能够对商品评分及权重产生影响的数据。
+ *
  * @package ActLoudBur\Business\SupplyChain\Consumables\Goods
  */
 class GoodsEvaluate extends Model

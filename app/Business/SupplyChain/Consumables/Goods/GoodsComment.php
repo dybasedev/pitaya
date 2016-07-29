@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * 商品评论模型
  *
+ * 评论是一条评价的具体论据, 内容是由用户产生的对评价进行说明和回复的数据。
+ *
  * @package ActLoudBur\Business\SupplyChain\Consumables\Goods
  */
 class GoodsComment extends Model

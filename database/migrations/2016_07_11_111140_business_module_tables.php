@@ -47,6 +47,7 @@ class BusinessModuleTables extends Migration
             $blueprint->increments('id');
             $blueprint->string('display_name')->index()->comment('品牌名称');
             $blueprint->string('alias')->index()->nullable()->comment('品牌别名');
+            $blueprint->text('description')->comment('品牌介绍');
             $blueprint->timestamps();
         });
         
@@ -75,6 +76,7 @@ class BusinessModuleTables extends Migration
             $blueprint->integer('total_sale')->default(0)->unsigned()->index()->comment('销售总量');
             $blueprint->integer('weight')->default(100)->comment('权重');
             $blueprint->string('specifications')->nullable()->index()->comment('规格项设置');
+            $blueprint->integer('brand_id')->unsigned()->nullable()->index()->comment('品牌 ID');
             $blueprint->timestamps();
 
             $blueprint->index(['publisher_type', 'publisher_id'], 'publisher_index');
