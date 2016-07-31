@@ -23,4 +23,11 @@ interface OrderSpecification
      * @return Order
      */
     public function getOrder();
+
+    /**
+     * 获取订单档案
+     * 
+     * @return OrderArchive
+     */
+    public function getArchive();
 }

@@ -9,6 +9,8 @@
 namespace ActLoudBur\Business\OrderSystem;
 
 use ActLoudBur\Business\Contracts\Order;
+use Closure;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use ActLoudBur\Business\Contracts\OrderArchive as OrderArchiveInterface;
 
@@ -39,6 +41,32 @@ class OrderArchive extends Model implements OrderArchiveInterface
     public function getOrder()
     {
         return $this->order()->getResults();
+    }
+
+    /**
+     * 获取订单明细
+     *
+     * @param Closure $callback 查询回调
+     *
+     * @return Collection
+     */
+    public function getSpecifications(Closure $callback = null)
+    {
+        if (is_null($callback)) {
+            return $this->specifications()->getResults();
+        }
+
+        return call_user_func($callback, $this->specifications()->getQuery());
+    }
+
+    /**
+     * 关联的订单明细
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function specifications()
+    {
+        return $this->hasMany(OrderSpecification::class, 'archive_id', 'id');
     }
 
 

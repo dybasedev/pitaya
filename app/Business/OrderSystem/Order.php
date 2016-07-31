@@ -150,5 +150,34 @@ class Order extends Model implements OrderInterface
         return $this->hasMany(OrderSpecification::class, 'order_id', 'id');
     }
 
+    /**
+     * 获取档案集合
+     *
+     * 该方法仅针对存在一个订单下，拥有多个不同订单档案的情况，比如拆分物流的单子
+     *
+     * @param Closure $callback 查询回调
+     *
+     * @return Collection
+     */
+    public function getArchives(Closure $callback = null)
+    {
+        if (is_null($callback)) {
+            return $this->archives()->getResults();
+        }
+
+        return call_user_func($callback, $this->archives()->getQuery());
+    }
+
+
+    /**
+     * 关联的多个订单档案
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function archives()
+    {
+        return $this->hasMany(OrderArchive::class, 'order_id', 'id');
+    }
+
 
 }

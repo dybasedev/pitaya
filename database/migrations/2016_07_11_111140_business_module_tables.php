@@ -179,7 +179,7 @@ class BusinessModuleTables extends Migration
             $blueprint->comment = '订单档案数据表';
 
             $blueprint->increments('id');
-            $blueprint->integer('order_id')->unique()->unsigned()->comment('订单 ID');
+            $blueprint->integer('order_id')->index()->unsigned()->comment('订单 ID');
             $blueprint->string('address')->index()->comment('地址');
             $blueprint->boolean('logistics_type')->default(1)->comment('物流类型');
             $blueprint->integer('logistics_price')->nullable()->comment('物流价格');
@@ -198,6 +198,8 @@ class BusinessModuleTables extends Migration
             $blueprint->comment = '订单详情表';
 
             $blueprint->increments('id');
+            $blueprint->integer('order_id')->index()->unsigned()->comment('订单 ID');
+            $blueprint->integer('archive_id')->index()->unsigned()->comment('订单档案 ID');
             $blueprint->integer('goods_id')->unsigned()->comment('商品 ID');
             $blueprint->integer('amount')->unsigned()->comment('总量');
             $blueprint->integer('original_price')->unsigned()->comment('原始单价');

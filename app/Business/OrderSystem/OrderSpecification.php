@@ -9,9 +9,17 @@
 namespace ActLoudBur\Business\OrderSystem;
 
 use ActLoudBur\Business\Contracts\Order;
+use ActLoudBur\Business\Contracts\OrderArchive;
 use ActLoudBur\Business\Contracts\OrderSpecification as OrderSpecificationInterface;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class OrderSpecification
+ * 
+ * 订单明细模型
+ *
+ * @package ActLoudBur\Business\OrderSystem
+ */
 class OrderSpecification extends Model implements OrderSpecificationInterface
 {
     /**
@@ -33,4 +41,26 @@ class OrderSpecification extends Model implements OrderSpecificationInterface
     {
         return $this->belongsTo(Order::class, 'order_id', 'id');
     }
+
+    /**
+     * 获取订单档案
+     *
+     * @return OrderArchive
+     */
+    public function getArchive()
+    {
+        return $this->archive()->getResults();
+    }
+
+    /**
+     * 关联的订单档案
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function archive()
+    {
+        return $this->belongsTo(OrderArchive::class, 'archive_id', 'id');
+    }
+
+
 }

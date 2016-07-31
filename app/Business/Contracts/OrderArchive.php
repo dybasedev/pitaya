@@ -8,6 +8,9 @@
 
 namespace ActLoudBur\Business\Contracts;
 
+use Illuminate\Database\Eloquent\Collection;
+use Closure;
+
 /**
  * Interface OrderArchive
  * 
@@ -23,4 +26,13 @@ interface OrderArchive
      * @return Order
      */
     public function getOrder();
+
+    /**
+     * 获取订单明细
+     * 
+     * @param Closure $callback 查询回调
+     * 
+     * @return Collection
+     */
+    public function getSpecifications(Closure $callback = null);
 }

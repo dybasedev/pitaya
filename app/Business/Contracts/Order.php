@@ -63,6 +63,17 @@ interface Order
     public function getArchive();
 
     /**
+     * 获取档案集合
+     * 
+     * 该方法仅针对存在一个订单下，拥有多个不同订单档案的情况，比如拆分物流的单子
+     * 
+     * @param Closure $callback 查询回调
+     * 
+     * @return Collection
+     */
+    public function getArchives(Closure $callback = null);
+
+    /**
      * 获取明细
      * 
      * @param Closure $callback
