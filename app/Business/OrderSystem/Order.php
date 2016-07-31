@@ -8,7 +8,11 @@
 
 namespace ActLoudBur\Business\OrderSystem;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use ActLoudBur\Business\Contracts\Order as OrderInterface;
+use ActLoudBur\Business\Contracts\OrderSpecification as OrderSpecificationInterface;
+use ActLoudBur\Business\Contracts\OrderArchive as OrderArchiveInterface;
 use App;
 use Closure;
 use DB;
@@ -20,43 +24,8 @@ use DB;
  *
  * @package ActLoudBur\Business\OrderSystem
  */
-class Order extends Model
+class Order extends Model implements OrderInterface
 {
-    /**
-     * 订单初始状态
-     */
-    const STATUS_BEGIN = 'a0';
-
-    /**
-     * 订单待支付状态
-     */
-    const STATUS_WAIT_FOR_PAYMENT = 'wp';
-
-    /**
-     * 订单待发货状态
-     */
-    const STATUS_WAIT_FOR_DISPATCH = 'wd';
-
-    /**
-     * 订单待收货状态
-     */
-    const STATUS_WAIT_FOR_RECEIPT = 'wr';
-
-    /**
-     * 订单待评价状态
-     */
-    const STATUS_WAIT_FOR_EVALUATE = 'we';
-
-    /**
-     * 订单待退货处理
-     */
-    const STATUS_WAIT_FOR_REFUND_PROCESS = 'wR';
-    
-    /**
-     * 订单终结状态
-     */
-    const STATUS_TERMINATE = 'tm';
-
     /**
      * @var array
      */
@@ -133,4 +102,53 @@ class Order extends Model
             return parent::save($options);
         });
     }
+
+    /**
+     * 获取档案
+     *
+     * @return OrderArchiveInterface
+     */
+    public function getArchive()
+    {
+        return $this->archive()->getResults();
+    }
+
+    /**
+     * 关联的档案
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function archive()
+    {
+        return $this->hasOne(OrderArchive::class, 'order_id', 'id');
+    }
+
+    /**
+     * 获取明细
+     *
+     * @param Closure $callback
+     *
+     * @return OrderSpecificationInterface|Collection
+     */
+    public function getSpecifications(Closure $callback = null)
+    {
+        if (is_null($callback)) {
+            return $this->specifications()->getResults();
+        }
+        
+        return call_user_func($callback, $this->specifications()->getQuery());
+    }
+
+
+    /**
+     * 关联的明细
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function specifications()
+    {
+        return $this->hasMany(OrderSpecification::class, 'order_id', 'id');
+    }
+
+
 }
