@@ -59,7 +59,20 @@ composer install
 php artisan key:generate
 ```
 
-用于生成加密使用的 Key。执行完上述过程，即可在 Homestead 环境下调试。
+用于生成加密使用的 Key。执行完上述过程，即可在 Homestead 环境下调试，不过想要在 Homestead 下调试，还需要做一个操作，用于准备构建 Homestead 配置文件，你需要执行 vendor 目录下的可执行文件，
+对于 Windows ，可在项目根目录下执行命令：
+
+```
+.\vendor\bin\homestead make
+```
+
+对于 Linux/Unix 系统，则执行以下命令：
+
+```
+./vendor/bin/homestead make
+```
+
+你就会在项目根目录下看见 `Homestead.yaml` 文件，该文件就是配置 Homestead 的文件。
 
 ### 前端部分
 
