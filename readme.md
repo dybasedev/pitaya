@@ -74,6 +74,27 @@ php artisan key:generate
 
 你就会在项目根目录下看见 `Homestead.yaml` 文件，该文件就是配置 Homestead 的文件。
 
+为了能够远程调试，因此需要在 Homestead 的虚拟机下配置 PHP 的 Xdebug，通过 `vagrant ssh` 连接至虚拟机。进入后，通过以下命令打开编辑器并编辑 `xdebug.ini`：
+
+```
+sudo vim /etc/php/7.0/mods-available/xdebug.ini
+```
+
+在配置文件末尾添加以下内容：
+
+```
+xdebug.remote_enable = 1
+xdebug.remote_connect_back = 1
+xdebug.remote_port = 9000
+xdebug.scream=0
+xdebug.cli_color=1
+xdebug.show_local_vars=1
+```
+
+随后保存即可。
+
+> Windows 下可能需要额外的 SSH 工具连接。SSH 的账户密码都是 `vagrant`。
+
 ### 前端部分
 
 执行以下命令，通过 NPM 安装第三方包：
