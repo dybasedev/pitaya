@@ -1,9 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2016/9/19
- * Time: 11:30
+ * ConsumableStockKeepingUnit.php
+ *
+ * Creator:    Sun
+ * Created at: 2016/09/19 11:30
  */
 
 namespace Pitaya\ConsumableSystem\Interfaces;

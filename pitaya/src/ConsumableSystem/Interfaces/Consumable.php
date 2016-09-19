@@ -1,12 +1,11 @@
 <?php
-
-
 /**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2016/9/19
- * Time: 11:28
+ * Consumable.php
+ *
+ * Creator:    Sun
+ * Created at: 2016/09/19 11:28
  */
+
 namespace Pitaya\ConsumableSystem\Interfaces;
 
 /**
