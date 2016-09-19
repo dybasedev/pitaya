@@ -22,7 +22,25 @@ interface Consumable
      *
      * @param string|null $currency 货币类型
      *
-     * @return array;
+     * @return array eg: [1200, 5850] 表示价格在 12.00 ~ 58.50 之间
      */
     public function getPriceRange($currency = null);
+
+    /**
+     * 获取最高价
+     *
+     * @param string|null $currency 货币类型
+     *
+     * @return int
+     */
+    public function getMaxPrice($currency = null);
+
+    /**
+     * 获取最低价
+     *
+     * @param string|null $currency 货币类型
+     *
+     * @return int
+     */
+    public function getMinimalPrice($currency = null);
 }
