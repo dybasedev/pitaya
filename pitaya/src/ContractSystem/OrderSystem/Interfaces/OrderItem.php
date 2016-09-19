@@ -17,5 +17,7 @@ namespace Pitaya\ContractSystem\OrderSystem\Interfaces;
  */
 interface OrderItem
 {
+    public function getConsumable();
 
+    public function getConsumableStockKeepingUnit();
 }
