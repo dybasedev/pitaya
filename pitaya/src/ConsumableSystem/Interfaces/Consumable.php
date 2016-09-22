@@ -33,7 +33,7 @@ interface Consumable
      *
      * @return int
      */
-    public function getMaxPrice($currency = null);
+    public function getMaximumPrice($currency = null);
 
     /**
      * 获取最低价
@@ -43,4 +43,13 @@ interface Consumable
      * @return int
      */
     public function getMinimalPrice($currency = null);
+
+    /**
+     * 获取默认 SKU 项
+     *
+     * 对于不存在多个 SKU 的系统, 该方法也是获取消费品明细的通道
+     *
+     * @return ConsumableStockKeepingUnit
+     */
+    public function getDefaultSkuItem();
 }

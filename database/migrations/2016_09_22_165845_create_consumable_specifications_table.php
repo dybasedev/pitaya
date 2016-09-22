@@ -16,11 +16,11 @@ class CreateConsumableSpecificationsTable extends Migration
         Schema::create('consumable_specifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('consumable_id')->index()->unsigned()->comment('SPU ID');
-            $table->integer('actual_price')->unsigned()->comment('实际价格,单位为分');
+            $table->integer('actual_price')->unsigned()->comment('实际价格, 单位为分');
             $table->integer('stock')->unsigned()->nullable()->comment('库存');
-            $table->string('unit')->nullable()->comment('SKU单位');
+            $table->string('unit')->nullable()->comment('SKU 单位');
             $table->string('specification')->nullable()->comment('规格');
-            $table->string('specification_map')->nullable()->index()->comment('规格map');
+            $table->string('specification_map')->nullable()->index()->comment('规格 Map');
             $table->timestamps();
         });
     }

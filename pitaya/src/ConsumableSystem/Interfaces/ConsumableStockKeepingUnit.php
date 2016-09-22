@@ -39,4 +39,11 @@ interface ConsumableStockKeepingUnit
      * @return string
      */
     public function getUnit();
+
+    /**
+     * 获取 SPU 项
+     *
+     * @return Consumable
+     */
+    public function getMaster();
 }
