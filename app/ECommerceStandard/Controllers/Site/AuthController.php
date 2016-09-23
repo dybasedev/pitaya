@@ -22,6 +22,13 @@ use PitayaApplication\ECommerce\Foundation\UserSystem\User;
  */
 class AuthController
 {
+    /**
+     * 登录处理逻辑
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -45,6 +52,11 @@ class AuthController
         return redirect()->back()->withErrors(['failed']);
     }
 
+    /**
+     * 登出处理逻辑
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logout()
     {
         Auth::guard(User::class)->logout();
