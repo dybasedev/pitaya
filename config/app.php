@@ -176,7 +176,7 @@ return [
         PitayaApplication\Base\Providers\AuthServiceProvider::class,
         PitayaApplication\Base\Providers\EventServiceProvider::class,
         PitayaApplication\Base\Providers\RouteServiceProvider::class,
-
+        PitayaApplication\ECommerce\Foundation\Providers\SiteProvider::class,
     ],
 
     /*
@@ -225,5 +225,10 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
 
     ],
+
+    /*
+     * 网站设置文件目录
+     */
+    'site_setting_file_path' => 'settings',
 
 ];

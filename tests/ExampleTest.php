@@ -16,4 +16,17 @@ class ExampleTest extends TestCase
         $this->visit('/')
              ->see('Laravel');
     }
+
+    public function testSiteSetting()
+    {
+        $setting = $this->app->make(\PitayaApplication\ECommerce\Foundation\Site\SiteSetting::class);
+
+        $setting->a = 1;
+        $setting->b = 'b';
+
+        $this->assertEquals(1, $setting->a);
+        $this->assertEquals('b', $setting->b);
+    }
+
+
 }

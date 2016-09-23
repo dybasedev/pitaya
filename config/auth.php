@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard'     => 'web',
+        'guard'     => \PitayaApplication\ECommerce\Foundation\UserSystem\User::class,
         'passwords' => 'users',
     ],
 
@@ -36,12 +36,12 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        \PitayaApplication\ECommerce\Foundation\UserSystem\User::class => [
             'driver'   => 'session',
             'provider' => 'users',
         ],
 
-        'manager' => [
+        \PitayaApplication\ECommerce\Foundation\UserSystem\Manager::class => [
             'driver'   => 'session',
             'provider' => 'managers',
         ],
