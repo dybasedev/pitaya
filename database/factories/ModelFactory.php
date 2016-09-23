@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(PitayaApplication\Base\User::class, function (Faker\Generator $faker) {
+$factory->define(PitayaApplication\ECommerce\Foundation\UserSystem\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
