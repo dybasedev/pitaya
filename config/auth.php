@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'manager' => [
+            'driver'   => 'session',
+            'provider' => 'managers',
+        ],
+
         'api' => [
             'driver'   => 'token',
             'provider' => 'users',
@@ -69,6 +74,11 @@ return [
             'driver' => 'eloquent',
             'model'  => PitayaApplication\ECommerce\Foundation\UserSystem\User::class,
         ],
+
+        'managers' => [
+            'driver' => 'eloquent',
+            'model'  => PitayaApplication\ECommerce\Foundation\UserSystem\Manager::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
