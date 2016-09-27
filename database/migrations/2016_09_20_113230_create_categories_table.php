@@ -23,6 +23,7 @@ class CreateCategoriesTable extends Migration
             $table->string('keywords')->index()->default('')->comment('关键字');
 
             $table->boolean('has_children')->default(false)->index()->comment('是否存在子类');
+            $table->string('trace_point')->nullable()->index()->comment('追踪点');
 
             $table->timestamps();
         });
