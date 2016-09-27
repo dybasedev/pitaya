@@ -8,6 +8,7 @@
 
 namespace Pitaya\ContractSystem\OrderSystem\Interfaces;
 
+use Closure;
 use Pitaya\ContractSystem\OrderSystem\Exceptions\StatusChangeException;
 
 /**
@@ -22,9 +23,11 @@ interface Order
     /**
      * 获取订单项
      *
+     * @param Closure $callback 过滤器
+     *
      * @return OrderItem[]
      */
-    public function getItems();
+    public function getItems(Closure $callback);
 
     /**
      * 设置订单状态

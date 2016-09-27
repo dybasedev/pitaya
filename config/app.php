@@ -177,6 +177,7 @@ return [
         PitayaApplication\Base\Providers\EventServiceProvider::class,
         PitayaApplication\Base\Providers\RouteServiceProvider::class,
         PitayaApplication\ECommerce\Foundation\Providers\SiteProvider::class,
+        PitayaApplication\ECommerce\Foundation\Providers\OrderSystemProvider::class,
     ],
 
     /*

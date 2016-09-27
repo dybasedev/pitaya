@@ -35,11 +35,11 @@ class Category extends Model implements CategoryInterface
     /**
      * 获取子品类
      *
-     * @param Closure|null $filter 过滤器回调
+     * @param Closure|null $callback 过滤器回调
      *
      * @return CategoryInterface[]|Collection|null
      */
-    public function getChildren(Closure $filter = null)
+    public function getChildren(Closure $callback = null)
     {
         if (!$this->hasChildren()) {
             return null;
@@ -47,11 +47,11 @@ class Category extends Model implements CategoryInterface
 
         $relation = $this->hasMany(static::class, 'parent_id', 'id');
 
-        if (is_null($filter)) {
+        if (is_null($callback)) {
             return $relation->getResults();
         }
 
-        return call_user_func($filter, $relation->getQuery(), $this);
+        return call_user_func($callback, $relation->getQuery(), $this);
     }
 
     /**

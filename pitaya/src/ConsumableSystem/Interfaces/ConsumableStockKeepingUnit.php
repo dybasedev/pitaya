@@ -29,7 +29,7 @@ interface ConsumableStockKeepingUnit
     /**
      * 获取库存数量
      *
-     * @return float
+     * @return int
      */
     public function getStock();
 

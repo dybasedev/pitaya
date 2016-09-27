@@ -29,11 +29,11 @@ interface Category
     /**
      * 获取子品类
      *
-     * @param Closure|null $filter 过滤器回调
+     * @param Closure|null $callback 过滤器回调
      *
      * @return Category[]|null
      */
-    public function getChildren(Closure $filter = null);
+    public function getChildren(Closure $callback = null);
 
     /**
      * 获取父品类

@@ -12,6 +12,13 @@ use Illuminate\Database\Eloquent\Model;
 use Pitaya\ConsumableSystem\Interfaces\Consumable;
 use Pitaya\ConsumableSystem\Interfaces\ConsumableStockKeepingUnit;
 
+/**
+ * Class ConsumableSpecifications
+ *
+ * 消费品明细项 (SKU) 模型
+ *
+ * @package PitayaApplication\ECommerce\Foundation\ConsumableSystem
+ */
 class ConsumableSpecifications extends Model implements ConsumableStockKeepingUnit
 {
     /**
@@ -23,17 +30,17 @@ class ConsumableSpecifications extends Model implements ConsumableStockKeepingUn
      */
     public function getPrice($currency = null)
     {
-        // TODO: Implement getPrice() method.
+        return (int)$this->getAttribute('actual_price');
     }
 
     /**
      * 获取库存数量
      *
-     * @return float
+     * @return int
      */
     public function getStock()
     {
-        // TODO: Implement getStock() method.
+        return (int)$this->getAttribute('stock');
     }
 
     /**
@@ -43,7 +50,7 @@ class ConsumableSpecifications extends Model implements ConsumableStockKeepingUn
      */
     public function getUnit()
     {
-        // TODO: Implement getUnit() method.
+        return $this->getAttribute('unit');
     }
 
     /**
@@ -53,7 +60,7 @@ class ConsumableSpecifications extends Model implements ConsumableStockKeepingUn
      */
     public function getMaster()
     {
-        // TODO: Implement getMaster() method.
+        return $this->belongsTo(Consumable::class, 'consumable_id', 'id')->getResults();
     }
 
 

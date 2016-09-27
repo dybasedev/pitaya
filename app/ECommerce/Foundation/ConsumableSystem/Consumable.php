@@ -15,6 +15,13 @@ use Illuminate\Database\Eloquent\Model;
 use Pitaya\ConsumableSystem\Interfaces\ConsumableStockKeepingUnit;
 use Pitaya\ConsumableSystem\Interfaces\ConsumableWithManySKUItems as ConsumableInterface;
 
+/**
+ * Class Consumable
+ *
+ * 消费品模型
+ *
+ * @package PitayaApplication\ECommerce\Foundation\ConsumableSystem
+ */
 class Consumable extends Model implements ConsumableInterface
 {
     /**
