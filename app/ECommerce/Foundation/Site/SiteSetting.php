@@ -143,6 +143,22 @@ class SiteSetting
     }
 
     /**
+     * 获取设置项
+     *
+     * @param null $name
+     *
+     * @return array|mixed
+     */
+    public function get($name = null)
+    {
+        if (is_null($name)) {
+            return $this->settings;
+        }
+
+        return $this->settings[$name];
+    }
+
+    /**
      * 清空设置项
      */
     public function destroy()

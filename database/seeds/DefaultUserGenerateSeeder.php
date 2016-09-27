@@ -11,6 +11,7 @@ class DefaultUserGenerateSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(\PitayaApplication\ECommerce\Foundation\UserSystem\User::class, 5)->create();
+        factory(\PitayaApplication\ECommerce\Foundation\UserSystem\Manager::class)->create();
     }
 }
